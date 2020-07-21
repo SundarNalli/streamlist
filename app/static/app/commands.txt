@@ -7,3 +7,57 @@ Start Server:
 
 
 
+Mac Notes:
+
+from django.db import models
+
+
+class Language(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
+
+
+class StreamingPartner(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
+
+
+class Cast(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
+
+
+class MovieType(models.Model):
+    name = models.CharField(max_length=25)
+
+    def __str__(self):
+        return self.name
+
+
+class Movie(models.Model):
+    title = models.CharField(max_length=200)
+    release_year = models.DateField()
+    added_on = models.DateField(auto_now=True)
+    rating = models.FloatField()
+    languages = models.ManyToManyField(Language)
+    movie_type = models.ForeignKey(MovieType, on_delete=models.DO_NOTHING)
+    casts = models.ManyToManyField(Cast)
+
+    def __str__(self):
+        return self.title
+
+
+class MovieLink(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.DO_NOTHING)
+    streaming_partner = models.ForeignKey(
+        StreamingPartner, on_delete=models.DO_NOTHING)
+    url = models.URLField(max_length=1000)
+
+    def __str__(self):
+        return self.movie.title + ' on ' + self.streaming_partner.name
