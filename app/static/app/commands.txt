@@ -1,0 +1,9 @@
+Windows Notes:
+Project Path: C:\Users\Sundar Nalli\Documents\Projects\StreamList
+Virtual Env Start: Scripts\activate.bat
+Start Server: 
+    cd streamlist
+    python manage.py runserver
+
+
+
