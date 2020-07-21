@@ -1,6 +1,14 @@
 Windows Notes:
 Project Path: C:\Users\Sundar Nalli\Documents\Projects\StreamList
-Virtual Env Start: Scripts\activate.bat
+Virtual Env 
+Create: python -m venv bollywoodpicks
+pip install django
+python -m pip install --upgrade pip
+django-admin startproject bollywoodpicks
+
+Upgrade PIP: pip install --upgrade pip
+
+Start: Scripts\activate.bat
 Start Server: 
     cd streamlist
     python manage.py runserver
